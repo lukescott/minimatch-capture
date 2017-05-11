@@ -17,9 +17,9 @@ class Capture {
 		return this.regexp
 	}
 
-	match(file) {
+	match(path) {
 		let result = false
-		let match = file.match(this.makeRe())
+		let match = path.match(this.makeRe())
 		if (match) {
 			match = match.filter(isDef)
 			result = match[1] || match[0]
@@ -74,17 +74,17 @@ function match(list, pattern, options) {
 	const cap = new Capture(pattern, options)
 	const result = []
 	for (let i = 0; i < list.length; i++) {
-		const file = list[i]
-		const match = cap.match(file)
+		const path = list[i]
+		const match = cap.match(path)
 		if (match) {
-			result.push([file, match])
+			result.push([path, match])
 		}
 	}
 	return result
 }
 
-module.exports = function(file, pattern, options) {
-	return new Capture(pattern, options).match(file)
+module.exports = function(path, pattern, options) {
+	return new Capture(pattern, options).match(path)
 }
 
 Object.assign(module.exports, {
