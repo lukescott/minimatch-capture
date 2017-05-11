@@ -192,11 +192,11 @@ fixture.forEach(row => {
 			const notrim = o && o.notrim ? " (notrim)" : ""
 			if (m.match(f)) {
 				test(`${f}${notrim} is truthy`, () => {
-					expect(c.match(f)).toBeTruthy()
+					expect(c.capture(f)).toBeTruthy()
 				})
 			} else {
 				test(`${f}${notrim} is falsy`, () => {
-					expect(c.match(f)).toBeFalsy()
+					expect(c.capture(f)).toBeFalsy()
 				})
 			}
 		})

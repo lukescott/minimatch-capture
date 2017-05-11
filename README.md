@@ -1,6 +1,6 @@
 # minimap-capture
 
-A minimap wrapper that captures the dynamic part. Useful for constructing identifiers from filenames.
+A minimap wrapper that captures the dynamic part. Useful for constructing identifiers from paths.
 
 [![Build Status](https://travis-ci.org/lukescott/minimatch-capture.svg?branch=master)](https://travis-ci.org/lukescott/minimatch-capture) [![codecov](https://codecov.io/gh/lukescott/minimatch-capture/branch/master/graph/badge.svg)](https://codecov.io/gh/lukescott/minimatch-capture)
 
@@ -39,7 +39,7 @@ var c = new Capture(pattern, options)
 
 * `makeRe` Generate the `regexp` member if necessary, and return it.
   Will return `false` if the pattern is invalid.
-* `match(fname)` Return captured portion of the filename, or
+* `capture(path)` Return captured portion of the path, or
   false otherwise.
 
 ### capture(path, pattern, options)
