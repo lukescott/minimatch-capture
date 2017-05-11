@@ -1,0 +1,29 @@
+{
+  "name": "minimatch-capture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "watch": "jest --watch",
+    "lint": "eslint *.js .*.js --no-ignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lukescott/minimatch-capture.git"
+  },
+  "author": "Luke Scott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukescott/minimatch-capture/issues"
+  },
+  "homepage": "https://github.com/lukescott/minimatch-capture#readme",
+  "dependencies": {
+    "minimatch": "^3.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-plugin-jest": "^20.0.0",
+    "jest": "^20.0.0"
+  }
+}

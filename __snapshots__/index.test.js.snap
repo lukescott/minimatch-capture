@@ -1,0 +1,330 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`makeRe 1`] = `
+Array [
+  "^(?:(one\\\\/two))$",
+  "^(?:(one\\\\/two)|(\\\\/two))$",
+  "^(?:(one\\\\/two)|(one\\\\/))$",
+  "^(?:(one\\\\/two)|(one\\\\/)|(\\\\/two)|(\\\\/))$",
+  "^(?:(zeroOne\\\\/twoThree)|(zeroOne\\\\/Three)|(zero\\\\/twoThree)|(zero\\\\/Three))$",
+  "^(?:one\\\\/((?!\\\\.)(?=.)[^\\\\/]*?)\\\\/two)$",
+  "^(?:one\\\\/((?:(?!(?:\\\\/|^)\\\\.).)*?)\\\\/two)$",
+  "^(?:one\\\\/((?!\\\\.)(?=.)[^\\\\/]*?[^\\\\/]*?[^\\\\/]*?)\\\\/two)$",
+  "^(?:one\\\\/((?!\\\\.)(?=.)[^\\\\/]*?\\\\/two\\\\/(?!\\\\.)(?=.)[^\\\\/]*?)\\\\/three)$",
+  "^(?:one\\\\/((?!\\\\.)(?=.)(?:two))\\\\/three)$",
+  "^(?:one\\\\/two((?!\\\\.)(?=.)(?:Three))Four\\\\/five)$",
+  "^(?:one\\\\/((?!\\\\.)(?=.)(?:(?!(?:two(?=\\\\/)))[^\\\\/]*?))\\\\/three)$",
+  "^(?:one\\\\/two((?!\\\\.)(?=.)(?:(?!(?:Three(?!\\\\/)))[^\\\\/]*?))Four\\\\/five)$",
+  "^(?:one\\\\/((?!\\\\.)(?=.)(?:two)+)\\\\/three)$",
+  "^(?:one\\\\/two((?!\\\\.)(?=.)(?:Three)+)Four\\\\/five)$",
+  "^(?:one\\\\/t((?!\\\\.)(?=.)[^\\\\/])o\\\\/three)$",
+  "^(?:(one\\\\/t\\\\+o\\\\/three))$",
+]
+`;
+
+exports[`match 1`] = `
+Array [
+  Array [
+    Array [
+      "one/two",
+      "one/two",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two",
+      "one/two",
+    ],
+    Array [
+      "/two",
+      "two",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two",
+      "one/two",
+    ],
+    Array [
+      "one/",
+      "one",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two",
+      "one/two",
+    ],
+    Array [
+      "/",
+      "",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two",
+      "one/two",
+    ],
+    Array [
+      "/",
+      "/",
+    ],
+  ],
+  Array [
+    Array [
+      "zeroOne/twoThree",
+      "zeroOne/twoThree",
+    ],
+    Array [
+      "zero/Three",
+      "zero/Three",
+    ],
+  ],
+  Array [
+    Array [
+      "zeroOne/middle/twoThree",
+      "zeroOne/middle/twoThree",
+    ],
+    Array [
+      "zero/middle/Three",
+      "zero/middle/Three",
+    ],
+  ],
+  Array [
+    Array [
+      "zeroOne/middle/twoThree",
+      "zeroOne/middle/twoThree",
+    ],
+    Array [
+      "zero/middle/Three",
+      "zero/middle/Three",
+    ],
+  ],
+  Array [
+    Array [
+      "one/foo/two",
+      "foo",
+    ],
+  ],
+  Array [
+    Array [
+      "one/foo/two",
+      "foo",
+    ],
+    Array [
+      "one/foo/bar/two",
+      "foo/bar",
+    ],
+  ],
+  Array [
+    Array [
+      "one/foo/two",
+      "foo",
+    ],
+  ],
+  Array [
+    Array [
+      "one/foo/two/bar/three",
+      "foo/two/bar",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two/three",
+      "two",
+    ],
+  ],
+  Array [
+    Array [
+      "one/twoThreeFour/five",
+      "Three",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two-/three",
+      "two-",
+    ],
+    Array [
+      "one/-two/three",
+      "-two",
+    ],
+    Array [
+      "one/foo/three",
+      "foo",
+    ],
+  ],
+  Array [
+    Array [
+      "one/-two/three",
+      "-two",
+    ],
+    Array [
+      "one/foo/three",
+      "foo",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two/three",
+      "two",
+    ],
+    Array [
+      "one/two-/three",
+      "two-",
+    ],
+    Array [
+      "one/-two/three",
+      "-two",
+    ],
+    Array [
+      "one/foo/three",
+      "foo",
+    ],
+  ],
+  Array [
+    Array [
+      "one/twoFour/five",
+      "",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two-/three",
+      "two-",
+    ],
+    Array [
+      "one/-two/three",
+      "-two",
+    ],
+  ],
+  Array [
+    Array [
+      "one/-two/three",
+      "-two",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two/three",
+      "two",
+    ],
+    Array [
+      "one/two-/three",
+      "two-",
+    ],
+    Array [
+      "one/-two/three",
+      "-two",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two/three",
+      "two",
+    ],
+    Array [
+      "one/two-/three",
+      "two-",
+    ],
+    Array [
+      "one/-two/three",
+      "-two",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two/three",
+      "two",
+    ],
+    Array [
+      "one/two-/three",
+      "two-",
+    ],
+    Array [
+      "one/-two/three",
+      "-two",
+    ],
+  ],
+  Array [
+    Array [
+      "one/two/A/three",
+      "A",
+    ],
+    Array [
+      "one/B/two/three",
+      "B",
+    ],
+  ],
+]
+`;
+
+exports[`split 1`] = `
+Array [
+  Array [
+    "",
+    "one/two",
+    "",
+  ],
+  Array [
+    "one/",
+    "*",
+    "/two",
+  ],
+  Array [
+    "one/",
+    "**",
+    "/two",
+  ],
+  Array [
+    "one/",
+    "***",
+    "/two",
+  ],
+  Array [
+    "one/",
+    "*/two/*",
+    "/three",
+  ],
+  Array [
+    "one/",
+    "@(two)",
+    "/three",
+  ],
+  Array [
+    "one/two",
+    "@(Three)",
+    "Four/five",
+  ],
+  Array [
+    "one/",
+    "!(two)",
+    "/three",
+  ],
+  Array [
+    "one/two",
+    "!(Three)",
+    "Four/five",
+  ],
+  Array [
+    "one/",
+    "+(two)",
+    "/three",
+  ],
+  Array [
+    "one/two",
+    "+(Three)",
+    "Four/five",
+  ],
+  Array [
+    "one/t",
+    "?",
+    "o/three",
+  ],
+  Array [
+    "",
+    "one/t+o/three",
+    "",
+  ],
+]
+`;
