@@ -1,11 +1,13 @@
+"use strict"
+
 const minimatch = require("minimatch")
 const splitRe = /([!?+*@]\([^)]+\)|\*{1,2}|\?)/
 const endWithNegRe = /!\([^)]+\)$/
 
 class Capture {
-	constructor(pattern, options = {}) {
+	constructor(pattern, options) {
 		this.pattern = pattern
-		this.options = options
+		this.options = options || {}
 	}
 
 	makeRe() {
@@ -39,8 +41,8 @@ function split(pattern) {
 
 const nonegate = {nonegate: true}
 
-function _makeRe(pattern, options = {}) {
-	const flags = options.nocase ? "i" : ""
+function _makeRe(pattern, options) {
+	const flags = options && options.nocase ? "i" : ""
 	const subpatterns = minimatch.braceExpand(pattern, options)
 	const expressions = subpatterns.map(subpattern => {
 		const parts = split(subpattern)
@@ -68,7 +70,7 @@ function makeRe(pattern, options) {
 	}
 }
 
-function match(list, pattern, options = {}) {
+function match(list, pattern, options) {
 	const cap = new Capture(pattern, options)
 	const result = []
 	for (let i = 0; i < list.length; i++) {

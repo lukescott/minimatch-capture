@@ -1,3 +1,5 @@
+"use strict"
+
 const capture = require("./")
 const minimatch = require("minimatch")
 
