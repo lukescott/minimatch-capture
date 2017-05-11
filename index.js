@@ -18,16 +18,16 @@ class Capture {
 	}
 
 	match(file) {
+		let result = false
 		let match = file.match(this.makeRe())
 		if (match) {
 			match = match.filter(isDef)
-			if (!this.options.notrim) {
-				match[1] = match[1].replace(/^\/|\/$/g, "")
+			result = match[1] || match[0]
+			if (!this.options.notrim && result !== "/") {
+				result = result.replace(/^\/|\/$/g, "")
 			}
-		} else {
-			match = false
 		}
-		return match
+		return result
 	}
 }
 
@@ -77,7 +77,7 @@ function match(list, pattern, options) {
 		const file = list[i]
 		const match = cap.match(file)
 		if (match) {
-			result.push(match)
+			result.push([file, match])
 		}
 	}
 	return result

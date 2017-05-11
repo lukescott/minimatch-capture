@@ -24,248 +24,352 @@ Array [
 
 exports[`match 1`] = `
 Array [
-  Array [
-    Array [
-      "one/two",
-      "one/two",
+  Object {
+    "o": undefined,
+    "p": "one/two",
+    "r": Array [
+      Array [
+        "one/two",
+        "one/two",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/two",
-      "one/two",
+  },
+  Object {
+    "o": undefined,
+    "p": "{one,}/two",
+    "r": Array [
+      Array [
+        "one/two",
+        "one/two",
+      ],
+      Array [
+        "/two",
+        "two",
+      ],
     ],
-    Array [
-      "/two",
-      "two",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/{two,}",
+    "r": Array [
+      Array [
+        "one/two",
+        "one/two",
+      ],
+      Array [
+        "one/",
+        "one",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/two",
-      "one/two",
+  },
+  Object {
+    "o": undefined,
+    "p": "{one,}/{two,}",
+    "r": Array [
+      Array [
+        "one/two",
+        "one/two",
+      ],
+      Array [
+        "/",
+        "/",
+      ],
     ],
-    Array [
-      "one/",
-      "one",
+  },
+  Object {
+    "o": Object {
+      "notrim": true,
+    },
+    "p": "{one,}/{two,}",
+    "r": Array [
+      Array [
+        "one/two",
+        "one/two",
+      ],
+      Array [
+        "/",
+        "/",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/two",
-      "one/two",
+  },
+  Object {
+    "o": undefined,
+    "p": "{one,}/middle/{two,}",
+    "r": Array [
+      Array [
+        "one/middle/two",
+        "one/middle/two",
+      ],
+      Array [
+        "/middle/",
+        "middle",
+      ],
     ],
-    Array [
-      "/",
-      "",
+  },
+  Object {
+    "o": Object {
+      "notrim": true,
+    },
+    "p": "{one,}/middle/{two,}",
+    "r": Array [
+      Array [
+        "one/middle/two",
+        "one/middle/two",
+      ],
+      Array [
+        "/middle/",
+        "/middle/",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/two",
-      "one/two",
+  },
+  Object {
+    "o": undefined,
+    "p": "zero{One,}/{two,}Three",
+    "r": Array [
+      Array [
+        "zeroOne/twoThree",
+        "zeroOne/twoThree",
+      ],
+      Array [
+        "zero/Three",
+        "zero/Three",
+      ],
     ],
-    Array [
-      "/",
-      "/",
+  },
+  Object {
+    "o": undefined,
+    "p": "zero{One,}/middle/{two,}Three",
+    "r": Array [
+      Array [
+        "zeroOne/middle/twoThree",
+        "zeroOne/middle/twoThree",
+      ],
+      Array [
+        "zero/middle/Three",
+        "zero/middle/Three",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/middle/two",
-      "one/middle/two",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/*/two",
+    "r": Array [
+      Array [
+        "one/foo/two",
+        "foo",
+      ],
     ],
-    Array [
-      "/middle/",
-      "middle",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/**/two",
+    "r": Array [
+      Array [
+        "one/foo/two",
+        "foo",
+      ],
+      Array [
+        "one/foo/bar/two",
+        "foo/bar",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/middle/two",
-      "one/middle/two",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/***/two",
+    "r": Array [
+      Array [
+        "one/foo/two",
+        "foo",
+      ],
     ],
-    Array [
-      "/middle/",
-      "/middle/",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/*/two/*/three",
+    "r": Array [
+      Array [
+        "one/foo/two/bar/three",
+        "foo/two/bar",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "zeroOne/twoThree",
-      "zeroOne/twoThree",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/@(two)/three",
+    "r": Array [
+      Array [
+        "one/two/three",
+        "two",
+      ],
     ],
-    Array [
-      "zero/Three",
-      "zero/Three",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/two@(Three)Four/five",
+    "r": Array [
+      Array [
+        "one/twoThreeFour/five",
+        "Three",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "zeroOne/middle/twoThree",
-      "zeroOne/middle/twoThree",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/!(two)/three",
+    "r": Array [
+      Array [
+        "one/two-/three",
+        "two-",
+      ],
+      Array [
+        "one/-two/three",
+        "-two",
+      ],
+      Array [
+        "one/foo/three",
+        "foo",
+      ],
     ],
-    Array [
-      "zero/middle/Three",
-      "zero/middle/Three",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/!(two)*/three",
+    "r": Array [
+      Array [
+        "one/-two/three",
+        "-two",
+      ],
+      Array [
+        "one/foo/three",
+        "foo",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/foo/two",
-      "foo",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/*!(two)/three",
+    "r": Array [
+      Array [
+        "one/two/three",
+        "two",
+      ],
+      Array [
+        "one/two-/three",
+        "two-",
+      ],
+      Array [
+        "one/-two/three",
+        "-two",
+      ],
+      Array [
+        "one/foo/three",
+        "foo",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/foo/two",
-      "foo",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/two!(Three)Four/five",
+    "r": Array [
+      Array [
+        "one/twoFour/five",
+        "one/twoFour/five",
+      ],
     ],
-    Array [
-      "one/foo/bar/two",
-      "foo/bar",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/!(two)/three",
+    "r": Array [
+      Array [
+        "one/two-/three",
+        "two-",
+      ],
+      Array [
+        "one/-two/three",
+        "-two",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/foo/two",
-      "foo",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/!(two)*/three",
+    "r": Array [
+      Array [
+        "one/-two/three",
+        "-two",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/foo/two/bar/three",
-      "foo/two/bar",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/*!(two)/three",
+    "r": Array [
+      Array [
+        "one/two/three",
+        "two",
+      ],
+      Array [
+        "one/two-/three",
+        "two-",
+      ],
+      Array [
+        "one/-two/three",
+        "-two",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/two/three",
-      "two",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/*!(two){/,/}three",
+    "r": Array [
+      Array [
+        "one/two/three",
+        "two",
+      ],
+      Array [
+        "one/two-/three",
+        "two-",
+      ],
+      Array [
+        "one/-two/three",
+        "-two",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/twoThreeFour/five",
-      "Three",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/{*!(two)/three,*!(two)/three}",
+    "r": Array [
+      Array [
+        "one/two/three",
+        "two",
+      ],
+      Array [
+        "one/two-/three",
+        "two-",
+      ],
+      Array [
+        "one/-two/three",
+        "-two",
+      ],
     ],
-  ],
-  Array [
-    Array [
-      "one/two-/three",
-      "two-",
+  },
+  Object {
+    "o": undefined,
+    "p": "one/{two/!(two),!(two)/two}/three",
+    "r": Array [
+      Array [
+        "one/two/A/three",
+        "A",
+      ],
+      Array [
+        "one/B/two/three",
+        "B",
+      ],
     ],
-    Array [
-      "one/-two/three",
-      "-two",
-    ],
-    Array [
-      "one/foo/three",
-      "foo",
-    ],
-  ],
-  Array [
-    Array [
-      "one/-two/three",
-      "-two",
-    ],
-    Array [
-      "one/foo/three",
-      "foo",
-    ],
-  ],
-  Array [
-    Array [
-      "one/two/three",
-      "two",
-    ],
-    Array [
-      "one/two-/three",
-      "two-",
-    ],
-    Array [
-      "one/-two/three",
-      "-two",
-    ],
-    Array [
-      "one/foo/three",
-      "foo",
-    ],
-  ],
-  Array [
-    Array [
-      "one/twoFour/five",
-      "",
-    ],
-  ],
-  Array [
-    Array [
-      "one/two-/three",
-      "two-",
-    ],
-    Array [
-      "one/-two/three",
-      "-two",
-    ],
-  ],
-  Array [
-    Array [
-      "one/-two/three",
-      "-two",
-    ],
-  ],
-  Array [
-    Array [
-      "one/two/three",
-      "two",
-    ],
-    Array [
-      "one/two-/three",
-      "two-",
-    ],
-    Array [
-      "one/-two/three",
-      "-two",
-    ],
-  ],
-  Array [
-    Array [
-      "one/two/three",
-      "two",
-    ],
-    Array [
-      "one/two-/three",
-      "two-",
-    ],
-    Array [
-      "one/-two/three",
-      "-two",
-    ],
-  ],
-  Array [
-    Array [
-      "one/two/three",
-      "two",
-    ],
-    Array [
-      "one/two-/three",
-      "two-",
-    ],
-    Array [
-      "one/-two/three",
-      "-two",
-    ],
-  ],
-  Array [
-    Array [
-      "one/two/A/three",
-      "A",
-    ],
-    Array [
-      "one/B/two/three",
-      "B",
-    ],
-  ],
+  },
 ]
 `;
 

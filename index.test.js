@@ -4,16 +4,14 @@ const capture = require("./")
 const minimatch = require("minimatch")
 
 test("capture", () => {
-	expect(capture("foo/abc/bar", "foo/*/bar")).toEqual(["foo/abc/bar", "abc"])
+	expect(capture("foo/abc/bar", "foo/*/bar")).toBe("abc")
 	expect(capture("foo/a/bc/bar", "foo/*/bar")).toBe(false)
-	expect(capture("foo/a/bc/bar", "foo/**/bar")).toEqual(["foo/a/bc/bar", "a/bc"])
+	expect(capture("foo/a/bc/bar", "foo/**/bar")).toBe("a/bc")
 })
 
-test("case sensitivy", () => {
+test("capture: case sensitivy", () => {
 	expect(capture("foo/abc/Bar", "foo/*/bar")).toBe(false)
-	expect(capture("foo/abc/Bar", "foo/*/bar", {nocase: true})).toEqual([
-		"foo/abc/Bar", "abc",
-	])
+	expect(capture("foo/abc/Bar", "foo/*/bar", {nocase: true})).toBe("abc")
 })
 
 test("split", () => {
@@ -175,7 +173,13 @@ const fixture = [
 ]
 
 test("match", () => {
-	expect(fixture.map(row => capture.match(row.f, row.p, row.o))).toMatchSnapshot()
+	expect(fixture.map(row => {
+		return {
+			p: row.p,
+			o: row.o,
+			r: capture.match(row.f, row.p, row.o)
+		}
+	})).toMatchSnapshot()
 })
 
 fixture.forEach(row => {
