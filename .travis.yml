@@ -3,8 +3,7 @@ node_js:
   - "4"
   - "6"
   - "7"
-script:
-  - npm test
-  - codecov --file=./coverage/lcov.info'
+script: npm test
+after_script: "./node_modules/.bin/codecov --file=./coverage/lcov.info"
 notifications:
   email: false
