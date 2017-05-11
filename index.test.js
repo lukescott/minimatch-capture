@@ -92,17 +92,21 @@ const fixture = [
 		o: {notrim: true},
 	},
 	{
+		p: "{one,}/middle/{two,}",
+		f: ["one/middle/two", "/middle/"],
+	},
+	{
+		p: "{one,}/middle/{two,}",
+		f: ["one/middle/two", "/middle/"],
+		o: {notrim: true},
+	},
+	{
 		p: "zero{One,}/{two,}Three",
 		f: ["zeroOne/twoThree", "zero/Three"],
 	},
 	{
 		p: "zero{One,}/middle/{two,}Three",
 		f: ["zeroOne/middle/twoThree", "zero/middle/Three"],
-	},
-	{
-		p: "zero{One,}/middle/{two,}Three",
-		f: ["zeroOne/middle/twoThree", "zero/middle/Three"],
-		o: {notrim: true},
 	},
 	{
 		p: "one/*/two",

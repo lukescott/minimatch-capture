@@ -72,22 +72,32 @@ Array [
   ],
   Array [
     Array [
-      "zeroOne/twoThree",
-      "zeroOne/twoThree",
+      "one/middle/two",
+      "one/middle/two",
     ],
     Array [
-      "zero/Three",
-      "zero/Three",
+      "/middle/",
+      "middle",
     ],
   ],
   Array [
     Array [
-      "zeroOne/middle/twoThree",
-      "zeroOne/middle/twoThree",
+      "one/middle/two",
+      "one/middle/two",
     ],
     Array [
-      "zero/middle/Three",
-      "zero/middle/Three",
+      "/middle/",
+      "/middle/",
+    ],
+  ],
+  Array [
+    Array [
+      "zeroOne/twoThree",
+      "zeroOne/twoThree",
+    ],
+    Array [
+      "zero/Three",
+      "zero/Three",
     ],
   ],
   Array [
